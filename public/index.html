@@ -9,63 +9,128 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="/assets/css/style.css">
   <title>Recette du gâteau au chocolat</title>
+  <style>
+    body {
+      background-color: #8BA1BB;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+    }
+
+    p.categorie {
+      background-color: #000000;
+      color: #FFFFFF;
+      display: inline-block;
+      margin-top: 0px;
+      padding: 8px 18px;
+      margin-bottom: 0px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    div.contenu {
+      background-color: #FFFFFF;
+      margin: 0px 10% 80px 10%;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 12px;
+      margin-top: 10px;
+    }
+
+    p.description {
+      text-align: center;
+      max-width: 400px;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+
+    div.centre {
+      text-align: center;
+    }
+
+    div.categorie {
+      margin-bottom: -18px;
+      margin-top: 60px;
+    }
+
+    div.separateur {
+      width: 100px;
+      height: 1px;
+      background-color: #000000;
+      margin: auto;
+    }
+
+  </style>
 </head>
 
 <body>
   <main>
-    <h1>Recette du gâteau au chocolat</h1>
 
-    <section class="introduction">
-      <p>
-        Cette recette facile du gâteau au chocolat est un grand classique. Elle
-        fera plaisir aux plus gourmands.
-      </p>
-      <p>Pour 6 à 8 personnes</p>
+    <div class="centre categorie">
+      <p class="categorie">Recette</p>
+    </div>
 
-      <img src="/assets/images/gateau.jpg" alt="gâteau au chocolat moelleux et appétissant" />
+    <div class="contenu">
+      <h1>Recette du gâteau au chocolat</h1>
 
-      <table>
-        <tr>
-          <th>Difficulté</th>
-          <th>Préparation</th>
-          <th>Cuisson</th>
-          <th>Temps total</th>
-        </tr>
-        <tr>
-          <td>Facile</td>
-          <td>10 min</td>
-          <td>25 min</td>
-          <td>35 min</td>
-        </tr>
-      </table>
-    </section>
+      <div class="separateur"></div>
 
-    <section class="ingredients">
-      <h2>Ingrédients</h2>
-      <ul>
-        <li>Chocolat noir : 200g</li>
-        <li>Sucre : 150g</li>
-        <li>Beurre : 200g</li>
-        <li>Oeufs : 4</li>
-        <li>Farine : 80g</li>
-      </ul>
-    </section>
+      <section class="introduction">
+        <div class="centre">
+          <p class="description">
+            "Cette recette facile du gâteau au chocolat est un grand classique. Elle
+            fera plaisir aux plus gourmands."</p>
+        </div>
+        <img src="assets/images/gateau.jpg" alt="gâteau au chocolat moelleux et appétissant" />
 
-    <section class="preparation">
-      <h2>Préparation</h2>
-      <ol>
-        <li>Préchauffer le four à 180°C (thermostat 6)</li>
-        <li>Faire fondre le chocolat avec le beurre au bain-marie ou au micro-ondes</li>
-        <li>Dans un saladier, mélanger le sucre avec les oeufs jusqu'à ce que le mélange blanchisse</li>
-        <li>Ajouter la farine et mélanger</li>
-        <li>Incorporer le mélange chocolat-beurre fondu</li>
-        <li>Verser la préparation dans un moule beurré</li>
-        <li>Enfourner pendant 25 minutes</li>
-        <li>Laisser refroidir avant de démouler</li>
-      </ol>
+        <table>
+          <tr>
+            <th>Difficulté</th>
+            <th>Préparation</th>
+            <th>Cuisson</th>
+            <th>Temps total</th>
+          </tr>
+          <tr>
+            <td>Facile</td>
+            <td>10 min</td>
+            <td>25 min</td>
+            <td>35 min</td>
+          </tr>
+        </table>
+      </section>
 
-      <p class="conseil">Astuce : Pour vérifier la cuisson, plantez la lame d'un couteau au centre du gâteau. Elle doit ressortir légèrement humide.</p>
-    </section>
+      <section class="ingredients">
+        <h2>Ingrédients</h2>
+        <ul>
+          <li>Chocolat noir : 200g</li>
+          <li>Sucre : 150g</li>
+          <li>Beurre : 200g</li>
+          <li>Oeufs : 4</li>
+          <li>Farine : 80g</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>Préparation</h2>
+        <ol>
+          <li>Préchauffer le four à 180°C (thermostat 6)</li>
+          <li>Faire fondre le chocolat avec le beurre au bain-marie ou au micro-ondes</li>
+          <li>Dans un saladier, mélanger le sucre avec les oeufs jusqu'à ce que le mélange blanchisse</li>
+          <li>Ajouter la farine et mélanger</li>
+          <li>Incorporer le mélange chocolat-beurre fondu</li>
+          <li>Verser la préparation dans un moule beurré</li>
+          <li>Enfourner pendant 25 minutes</li>
+          <li>Laisser refroidir avant de démouler</li>
+        </ol>
+
+        <p class="conseil">Astuce : Pour vérifier la cuisson, plantez la lame d'un couteau au centre du gâteau. Elle
+          doit
+          ressortir légèrement humide.</p>
+      </section>
+    </div>
   </main>
 </body>
 
