@@ -12,22 +12,35 @@
 </head>
 
 <body>
-  <main>
+  <main role="main" aria-label="Recette de gâteau au chocolat">
     <div class="contenu">
       <div class="centre categorie">
-        <p class="categorie">Recette</p>
+        <p class="categorie" role="text">Recette</p>
       </div>
-      <h1>Recette du gâteau au chocolat</h1>
-      <div class="separateur"></div>
-      <section class="introduction">
+      <button onclick="window.print()" class="print-button" aria-label="Imprimer la recette">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M6 9V2h12v7"></path>
+          <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path>
+          <path d="M6 14h12v8H6z"></path>
+        </svg>
+        Imprimer
+      </button>
+      <h1 role="heading" aria-level="1">Recette du gâteau au chocolat</h1>
+      <div class="separateur" role="presentation"></div>
+      <section class="introduction" aria-label="Introduction">
         <div class="centre">
-          <p class="description">
+          <p class="description" role="text">
             "Cette recette facile du gâteau au chocolat est un grand classique. Elle
             fera plaisir aux plus gourmands."</p>
         </div>
         <div class="info">
-          <img class="centre info" src="assets/images/gateau.jpg" alt="gâteau au chocolat moelleux et appétissant" />
-          <table class="info">
+          <img class="centre info" 
+               src="assets/images/gateau.jpg" 
+               alt="gâteau au chocolat moelleux et appétissant"
+               width="100%" 
+               height="400"
+               loading="lazy" />
+          <table class="info" role="table" aria-label="Informations sur la recette">
             <tr>
               <th>Difficulté</th>
               <th>Préparation</th>
@@ -44,19 +57,27 @@
         </div>
       </section>
       <div>
-        <section class="ingredients">
-          <h2>Ingrédients</h2>
-          <div class="ingredients-list">
-            <p>Chocolat noir : 200g</p>
-            <p>Sucre : 150g</p>
-            <p>Beurre : 200g</p>
-            <p>Oeufs : 4</p>
-            <p>Farine : 80g</p>
+        <section class="ingredients" aria-labelledby="ingredients-heading">
+          <h2 id="ingredients-heading">Ingrédients</h2>
+          <div class="portions-calculator">
+            <label for="portions">Nombre de portions :</label>
+            <div class="portions-controls">
+              <button onclick="adjustPortions(-1)" aria-label="Réduire les portions">-</button>
+              <input type="number" id="portions" value="4" min="1" max="12" onchange="updateIngredients()">
+              <button onclick="adjustPortions(1)" aria-label="Augmenter les portions">+</button>
+            </div>
+          </div>
+          <div class="ingredients-list" role="list">
+            <p role="listitem"><span class="ingredient-amount" data-base="200">200</span>g de chocolat noir</p>
+            <p role="listitem"><span class="ingredient-amount" data-base="150">150</span>g de sucre</p>
+            <p role="listitem"><span class="ingredient-amount" data-base="200">200</span>g de beurre</p>
+            <p role="listitem"><span class="ingredient-amount" data-base="4">4</span> oeufs</p>
+            <p role="listitem"><span class="ingredient-amount" data-base="80">80</span>g de farine</p>
           </div>
         </section>
-        <section class="preparation">
-          <h2>Préparation</h2>
-          <table class="preparation-list">
+        <section class="preparation" aria-labelledby="preparation-heading">
+          <h2 id="preparation-heading">Préparation</h2>
+          <table class="preparation-list" role="table" aria-label="Étapes de préparation">
             <tr>
               <td>
                 <p class="numero">1</p>
@@ -111,6 +132,29 @@
       </div>
     </div>
   </main>
+
+  <script>
+    function adjustPortions(change) {
+      const input = document.getElementById('portions');
+      const newValue = parseInt(input.value) + change;
+      if (newValue >= 1 && newValue <= 12) {
+        input.value = newValue;
+        updateIngredients();
+      }
+    }
+
+    function updateIngredients() {
+      const portions = document.getElementById('portions').value;
+      const basePortions = 4;
+      const ratio = portions / basePortions;
+      
+      document.querySelectorAll('.ingredient-amount').forEach(element => {
+        const baseAmount = parseFloat(element.dataset.base);
+        const newAmount = Math.round(baseAmount * ratio * 10) / 10;
+        element.textContent = newAmount;
+      });
+    }
+  </script>
 </body>
 
 </html>

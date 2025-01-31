@@ -6,26 +6,49 @@ body {
   background-color: #8ba1bb;
   font-family: "Arial", sans-serif;
   margin: 0;
+  overflow-x: hidden;
 }
 
 p.categorie {
   background-color: #000000;
   color: #ffffff;
   display: inline-block;
-  margin-top: -15px;
   padding: 8px 18px;
-  margin-bottom: 0px;
+  margin: 0;
   font-weight: bold;
   font-size: 16px;
+}
+
+div.categorie {
+  margin: 0;
+  overflow: visible;
 }
 
 div.contenu {
   background-color: #ffffff;
   margin: 60px 10% 80px 10%;
-  padding: 0 30px 30px 30px;
+  padding: 30px 30px 30px 30px;
   min-width: 350px;
   box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
   overflow: visible;
+  position: relative;
+}
+
+div.centre.categorie {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: -15px;
+  left: 0;
+  z-index: 1;
+}
+
+/* Création d'un conteneur flex pour les sections */
+div.contenu > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 }
 
 h1 {
@@ -44,12 +67,6 @@ p.description {
 .centre {
   text-align: center;
   width: 100%;
-}
-
-div.categorie {
-  margin-bottom: 0;
-  margin-top: 0;
-  overflow: visible;
 }
 
 div.separateur {
@@ -72,20 +89,23 @@ table.info {
   bottom: 0;
   width: 100%;
   color: white;
-  background-color: #6c829dc0;
+  background-color: #6c829deb;
   height: 80px;
 }
 
 table.info td {
   text-align: center;
   font-size: 14px;
+  font-weight: 500;
   vertical-align: top;
   padding-top: 8px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 table.info th {
   font-size: 16px;
   vertical-align: bottom;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 img.info {
@@ -96,36 +116,79 @@ img.info {
   background-color: lightgray;
 }
 
+/* Ajustement des sections */
 section.ingredients,
 section.preparation {
-  width: 45%;
+  flex-basis: 45%;
   margin-top: 20px;
 }
 
-section h2 {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 15px;
-  border-bottom: 5px solid #6c829d;
-  padding-bottom: 5px;
-}
-
+/* Suppression du float et display inline-block */
 section.ingredients {
-  display: inline-block;
-  margin-right: 10%;
+  margin-right: 0;
+  display: block;
 }
 
 section.preparation {
-  float: right;
+  float: none;
+}
+
+/* Conteneur pour les ingrédients */
+div.ingredients-list {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Empêche le débordement lors des transformations */
 }
 
 div.ingredients-list p {
+  position: relative;
+  left: 0;
   text-align: center;
   font-size: 14px;
   border: 1px solid lightgray;
   padding: 8px 0;
   margin-top: 1px;
   margin-bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  transform: translateX(0); /* Position initiale explicite */
+}
+
+div.ingredients-list p:hover {
+  background-color: #f0f0f0;
+  transform: translateX(0) scale(1.02); /* Combine les transformations */
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Conteneur pour la préparation */
+table.preparation-list {
+  width: 100%;
+  overflow: hidden; /* Empêche le débordement lors des transformations */
+}
+
+table.preparation-list tr {
+  position: relative;
+  left: 0;
+  height: 40px;
+  transform: translateX(0); /* Position initiale explicite */
+}
+
+table.preparation-list tr:hover {
+  background-color: #f7f7f7;
+  transform: translateX(5px);
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Animation douce pour tous les éléments */
+.ingredients-list p,
+table.preparation-list tr,
+table.preparation-list .numero,
+table.info {
+  transition: all 0.2s ease-in-out;
+  backface-visibility: hidden; /* Optimisation des performances */
+  -webkit-font-smoothing: subpixel-antialiased; /* Améliore le rendu du texte */
 }
 
 table.preparation-list p.numero {
@@ -152,6 +215,124 @@ table.preparation-list td.preparation_etape {
   padding-bottom: 10px;
 }
 
-table.preparation-list tr {
-  height: 40px;
+table.preparation-list tr:hover .numero {
+  background-color: #4a6583;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover sur le tableau d'information */
+table.info:hover {
+  background-color: #4a6583eb;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.print-button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #6c829d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+.print-button:hover {
+  background-color: #4a6583;
+  transform: scale(1.05);
+}
+
+.print-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media print {
+  .print-button {
+    display: none;
+  }
+  
+  body {
+    background-color: white;
+  }
+  
+  div.contenu {
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+.portions-calculator {
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.portions-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.portions-calculator label {
+  font-size: 14px;
+  color: #4a6583;
+  font-weight: bold;
+}
+
+.portions-calculator input {
+  width: 50px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #6c829d;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.portions-calculator button {
+  background-color: #6c829d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  transform: scale(1);
+  backface-visibility: hidden;
+}
+
+.portions-calculator button:hover {
+  background-color: #4a6583;
+  transform: scale(1.1);
+}
+
+.ingredient-amount {
+  font-weight: bold;
+  color: #4a6583;
+}
+
+/* Ajout d'un conteneur spécifique pour le contenu principal pour gérer l'overflow */
+div.contenu > div:not(.centre.categorie) {
+  overflow: hidden;
 }
