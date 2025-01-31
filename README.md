@@ -71,7 +71,7 @@ projet-gateau/
 - 🔄 Mode sombre/clair
 - 🔄 Calcul automatique des proportions
 
-Lien du projet : [https://github.com/stevenlignereux/projet-gateau](https://recette-gateau.onrender.com/)
+Lien du projet : [https://recette-gateau.onrender.com](https://recette-gateau.onrender.com/)
 
 ## Licence
 Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.

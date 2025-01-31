@@ -1,3 +1,7 @@
+* {
+  overflow: auto;
+}
+
 body {
   background-color: #8ba1bb;
   font-family: "Arial", sans-serif;
@@ -8,7 +12,7 @@ p.categorie {
   background-color: #000000;
   color: #ffffff;
   display: inline-block;
-  margin-top: 0px;
+  margin-top: -15px;
   padding: 8px 18px;
   margin-bottom: 0px;
   font-weight: bold;
@@ -17,9 +21,11 @@ p.categorie {
 
 div.contenu {
   background-color: #ffffff;
-  margin: 0px 10% 80px 10%;
-  padding: 30px;
+  margin: 60px 10% 80px 10%;
+  padding: 0 30px 30px 30px;
   min-width: 350px;
+  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
+  overflow: visible;
 }
 
 h1 {
@@ -41,8 +47,9 @@ p.description {
 }
 
 div.categorie {
-  margin-bottom: -18px;
-  margin-top: 60px;
+  margin-bottom: 0;
+  margin-top: 0;
+  overflow: visible;
 }
 
 div.separateur {
@@ -79,4 +86,72 @@ table.info td {
 table.info th {
   font-size: 16px;
   vertical-align: bottom;
+}
+
+img.info {
+  display: block;
+  max-height: 400px;
+  object-fit: cover;
+  min-height: 200px;
+  background-color: lightgray;
+}
+
+section.ingredients,
+section.preparation {
+  width: 45%;
+  margin-top: 20px;
+}
+
+section h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-bottom: 5px solid #6c829d;
+  padding-bottom: 5px;
+}
+
+section.ingredients {
+  display: inline-block;
+  margin-right: 10%;
+}
+
+section.preparation {
+  float: right;
+}
+
+div.ingredients-list p {
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid lightgray;
+  padding: 8px 0;
+  margin-top: 1px;
+  margin-bottom: 0;
+}
+
+table.preparation-list p.numero {
+  background-color: #6c829d;
+  color: white;
+  width: 25px;
+  height: 25px;
+  padding-top: 4px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+table.preparation-list td {
+  vertical-align: top;
+}
+
+table.preparation-list td.preparation_etape {
+  font-size: 14px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+table.preparation-list tr {
+  height: 40px;
 }
