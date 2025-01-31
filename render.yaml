@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: gateau-au-chocolat
+    env: static
+    buildCommand: null  # Pas de build nécessaire pour l'instant
+    staticPublishPath: ./public
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html 
