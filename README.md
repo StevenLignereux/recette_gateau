@@ -61,16 +61,17 @@ projet-gateau/
 - ✅ Structure HTML de base
 - ✅ Contenu de la recette
 - ✅ Documentation
+- ✅ Ajout de styles CSS
 
 ### Prochaines versions
-- 🔄 Ajout de styles CSS
+
 - 🔄 Version responsive
 - 🔄 Ajout d'autres recettes
 - 🔄 Fonctionnalités interactives
 - 🔄 Mode sombre/clair
 - 🔄 Calcul automatique des proportions
 
-Lien du projet : [https://github.com/votreusername/projet-gateau](https://github.com/votreusername/projet-gateau)
+Lien du projet : [https://github.com/stevenlignereux/projet-gateau](https://recette-gateau.onrender.com/)
 
 ## Licence
 Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
